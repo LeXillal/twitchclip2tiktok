@@ -1,4 +1,5 @@
-# os.environ["IMAGEIO_FFMPEG_EXE"] = "./bin/ffmpeg"
+import os
+os.environ["IMAGEIO_FFMPEG_EXE"] = "./ffmpeg"
 from moviepy.editor import VideoFileClip, ImageClip, CompositeVideoClip
 
 import sys
@@ -13,19 +14,19 @@ source.save_frame("first-frame"+fileName+".jpeg", t='00:00:01')
 
 # Cam posision et croping
 # x1, y1 = coin haut gauche
-x1, y1 = 18, 583
+x1, y1 = 1365, 125
 # x2, y2 = coin bas droit
-x2, y2 = 340, 770
+x2, y2 = 1862, 389
 
 # ON récupère la caméra et on la place au bon endroit
-sizing = 900/(x2-x1)
+sizing = 960/(x2-x1)
 cam = source.crop(x1=x1, x2=x2, y1=y1, y2=y2)
 cam = cam.resize(sizing)
-cam = cam.set_position((90, 50))
+cam = cam.set_position((60, 1330))
 
 # On défini le template
 template = ImageClip(
-    "template.png", transparent=True).set_duration(source.duration)
+    "templateXi.png", transparent=True).set_duration(source.duration)
 
 # On positione la source
 source = source.resize(0.57)
