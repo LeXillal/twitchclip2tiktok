@@ -12,14 +12,14 @@ if len(sys.argv) < 4:
     exit()
 
 # On note le nom du fichier
-fileName = sys.argv[2]
+fileName = sys.argv[4]
 # On note le nom du template
-templateName = sys.argv[3]
+templateName = sys.argv[1]
 # Position de la caméra
-camPosition = sys.argv[4]
+camPosition = sys.argv[2]
 
 # Si on as un clip à récupérer
-if sys.argv[1] == "--clip":
+if sys.argv[3] == "--clip":
     # On vérifie que le fichier existe
     if os.path.exists("clip.mp4"):
         os.remove("clip.mp4")
