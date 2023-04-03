@@ -8,18 +8,19 @@ import requests
 
 # On vérifie qu'il y a bien les arguments
 if len(sys.argv) < 4:
-    print("Usage : python tiktok.py --video/--clip <clipName/videoName> <templateName> <top|bottom>")
+    print("Usage : python tiktok.py <templateName> <top|bottom> <video/clip>")
     exit()
 
-# On note le nom du fichier
-fileName = sys.argv[4]
 # On note le nom du template
 templateName = sys.argv[1]
 # Position de la caméra
 camPosition = sys.argv[2]
 
+# On prompt l'utilisateur pour récupérer le lien du clip ou du fichier
+fileName = input("Enter the link of the clip or the name of the file : ")
+
 # Si on as un clip à récupérer
-if sys.argv[3] == "--clip":
+if sys.argv[3] == "clip":
     # On vérifie que le fichier existe
     if os.path.exists("clip.mp4"):
         os.remove("clip.mp4")
